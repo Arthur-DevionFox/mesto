@@ -17,10 +17,11 @@
         <section class="profile">
             <img class="profile__avatar" alt="Аватар" src="./images/Avatar.jpg">
             <h1 class="profile__info">
-                <p class="profile__name">Жак-Ив Кусто <button class="profile__edit-button"><img src="images/Edit%20Button.svg" alt="Изменение"> </button></p>
+                <p class="profile__name">Жак-Ив Кусто<button type="button" class="profile__edit-button"><a class="popup-link" href="#popup"></a></button></p>
                 <p class="profile__profession">Исследователь океана</p>
             </h1>
-            <button class="profile__add-button"><img class="profile__button-image" src="images/Add%20Button.svg" alt="Добавление"></button>
+            <!--todo MAKE A BUTTON CHANGE ON 910PX-->
+            <button type="button" class="profile__add-button"></button>
         </section>
 
         <section class="elements">
@@ -47,7 +48,7 @@
                     <button class="elements__like"><img src="images/like.svg" alt="Лайк"></button>
                 </div>
             </div>
-
+            <!--todo END CARDS-->
             <div class="elements__element">
                 <img class="elements__image" src="images/Karachaevsk.jpg" alt="Карачаевск">
                 <div class="elements__info">
@@ -79,5 +80,23 @@
         <p class="footer__paragraph">© 2020 Mesto Russia</p>
     </footer>
 </div>
+
+<!--TODO END POPUP MENU-->
+<section class="popup popup__opened">
+    <button class="popup__close"><img  src="images/Close%20Icon.svg" alt="Крестик"></button>
+    <div class="popup__container">
+        <p class="popup__paragraph" type="radio">Редактировать профиль</p>
+        <form class="popup__form">
+            <label>
+                <input class="popup__name" type="text" placeholder="Жак-Ив Кусто"></input>
+            </label>
+            <label>
+                <input class="popup__profession" type="text" placeholder="Исследователь океана"></input>
+            </label>
+        </form>
+        <button class="popup__save" type="button">Сохранить</button>
+    </div>
+</section>
+<script src="JS/script.js"></script>
 </body>
 </html>

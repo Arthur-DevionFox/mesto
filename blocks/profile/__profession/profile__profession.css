@@ -11,3 +11,11 @@
     color: #FFF;
 
 }
+
+@media screen and (max-width: 910px) {
+    .profile__profession {
+        font-size: 14px;
+        line-height: 17px;
+        text-align: center;
+    }
+}
