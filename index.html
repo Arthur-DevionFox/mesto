@@ -17,8 +17,14 @@
         <section class="profile">
             <img class="profile__avatar" alt="Аватар" src="./images/Avatar.jpg">
             <h1 class="profile__info">
-                <p class="profile__name">Жак-Ив Кусто<button type="button" class="profile__edit-button"><a class="popup-link" href="#popup"></a></button></p>
-                <p class="profile__profession">Исследователь океана</p>
+
+                <div class="profile__paragraphs">
+                    <p class="profile__name">Жак-Ив Кусто</p>
+                    <p class="profile__profession">Исследователь океана</p>
+                </div>
+
+
+                <button type="button" class="profile__edit-button"></button>
             </h1>
             <button type="button" class="profile__add-button"></button>
         </section>
@@ -80,17 +86,16 @@
     </footer>
 </div>
 
-<!--TODO END POPUP MENU-->
-<div class="popup popup__opened">
-    <button class="popup__close"><img  src="images/Close%20Icon.svg" alt="Крестик"></button>
+<div class="popup">
+    <button class="popup__close"><img src="images/Close%20Icon.svg" alt="Крестик"></button>
     <div class="popup__container">
         <p class="popup__paragraph" type="radio">Редактировать профиль</p>
         <form class="popup__form">
             <label>
-                <input class="popup__name" type="text" placeholder="Жак-Ив Кусто"></input>
+                <input class="popup__name" type="text" placeholder="Жак-Ив Кусто"/>
             </label>
             <label>
-                <input class="popup__profession" type="text" placeholder="Исследователь океана"></input>
+                <input class="popup__profession" type="text" placeholder="Исследователь океана">
             </label>
         </form>
         <button class="popup__save" type="button">Сохранить</button>
