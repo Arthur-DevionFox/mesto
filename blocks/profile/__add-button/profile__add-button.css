@@ -1,0 +1,14 @@
+.profile__add-button {
+    padding: 0;
+    margin: auto 0 auto auto;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.profile__add-button:hover {
+    opacity: 0.6;
+    transition: opacity 0.8s ease;
+}
