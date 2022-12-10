@@ -11,3 +11,10 @@
     color: #FFF;
 
 }
+
+@media screen and (max-width: 910px) {
+    .profile__name {
+        font-size: 27px;
+        line-height: 33px;
+    }
+}

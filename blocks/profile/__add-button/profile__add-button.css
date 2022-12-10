@@ -1,6 +1,8 @@
+/*todo make button changes*/
 .profile__add-button {
     padding: 0;
     margin: auto 0 auto auto;
+    max-width: 150px;
     border: none;
     font: inherit;
     color: inherit;
@@ -11,4 +13,11 @@
 .profile__add-button:hover {
     opacity: 0.6;
     transition: opacity 0.8s ease;
+}
+
+@media screen and (max-width: 910px) {
+    .profile__add-button {
+        margin: 36px auto 0 auto;
+        max-width: 282px;
+    }
 }
