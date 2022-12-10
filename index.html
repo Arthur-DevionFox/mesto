@@ -20,7 +20,6 @@
                 <p class="profile__name">Жак-Ив Кусто<button type="button" class="profile__edit-button"><a class="popup-link" href="#popup"></a></button></p>
                 <p class="profile__profession">Исследователь океана</p>
             </h1>
-            <!--todo MAKE A BUTTON CHANGE ON 910PX-->
             <button type="button" class="profile__add-button"></button>
         </section>
 
@@ -48,11 +47,19 @@
                     <button class="elements__like"><img src="images/like.svg" alt="Лайк"></button>
                 </div>
             </div>
-            <!--todo END CARDS-->
+
             <div class="elements__element">
-                <img class="elements__image" src="images/Karachaevsk.jpg" alt="Карачаевск">
+                <img class="elements__image" src="images/Albrus.jpg" alt="Карачаевск">
                 <div class="elements__info">
-                    <p class="elements__paragraph"></p>
+                    <p class="elements__paragraph">Гора Эльбрус</p>
+                    <button class="elements__like"><img src="images/like.svg" alt="Лайк"></button>
+                </div>
+            </div>
+
+            <div class="elements__element">
+                <img class="elements__image" src="images/Dombai.jpg" alt="Карачаевск">
+                <div class="elements__info">
+                    <p class="elements__paragraph">Домбай</p>
                     <button class="elements__like"><img src="images/like.svg" alt="Лайк"></button>
                 </div>
             </div>
@@ -60,15 +67,7 @@
             <div class="elements__element">
                 <img class="elements__image" src="images/Karachaevsk.jpg" alt="Карачаевск">
                 <div class="elements__info">
-                    <p class="elements__paragraph"></p>
-                    <button class="elements__like"><img src="images/like.svg" alt="Лайк"></button>
-                </div>
-            </div>
-
-            <div class="elements__element">
-                <img class="elements__image" src="images/Karachaevsk.jpg" alt="Карачаевск">
-                <div class="elements__info">
-                    <p class="elements__paragraph"></p>
+                    <p class="elements__paragraph">Карачаевск</p>
                     <button class="elements__like"><img src="images/like.svg" alt="Лайк"></button>
                 </div>
             </div>
@@ -82,7 +81,7 @@
 </div>
 
 <!--TODO END POPUP MENU-->
-<section class="popup popup__opened">
+<div class="popup popup__opened">
     <button class="popup__close"><img  src="images/Close%20Icon.svg" alt="Крестик"></button>
     <div class="popup__container">
         <p class="popup__paragraph" type="radio">Редактировать профиль</p>
@@ -96,7 +95,7 @@
         </form>
         <button class="popup__save" type="button">Сохранить</button>
     </div>
-</section>
+</div>
 <script src="JS/script.js"></script>
 </body>
 </html>
