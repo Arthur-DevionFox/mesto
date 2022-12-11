@@ -20,3 +20,11 @@
     transition: opacity 0.8s ease;
     cursor: pointer;
 }
+
+@media screen and (max-width: 500px) {
+    .popup__save {
+        max-width: 238px;
+        font-size: 14px;
+        line-height: 17px;
+    }
+}

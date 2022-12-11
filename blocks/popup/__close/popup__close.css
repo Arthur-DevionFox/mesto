@@ -13,3 +13,10 @@
     background-color: transparent;
     cursor: pointer;
 }
+
+@media screen and (max-width: 320px) {
+    .popup__close {
+        left: auto;
+        right: auto;
+    }
+}

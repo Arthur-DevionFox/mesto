@@ -7,3 +7,9 @@
     gap: 30px;
 
 }
+
+@media screen and (max-width: 500px) {
+    .popup__form {
+        grid-template-columns: 238px;
+    }
+}

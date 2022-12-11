@@ -10,6 +10,9 @@
     align-items: center;
 }
 
-@media screen {
-
+@media screen and (max-width: 500px) {
+    .popup__container {
+        max-width: 282px;
+        min-height: 322px;
+    }
 }
