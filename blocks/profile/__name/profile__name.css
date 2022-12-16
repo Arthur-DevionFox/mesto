@@ -1,7 +1,7 @@
 .profile__name {
     margin: 0 auto;
     padding: 0;
-    width: 100%;
+    max-width: 294px;
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 500;
@@ -13,6 +13,9 @@
     display: flex;
     justify-content: left;
     align-items: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 @media screen and (max-width: 910px) {

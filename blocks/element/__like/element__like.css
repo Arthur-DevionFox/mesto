@@ -1,4 +1,4 @@
-.elements__like {
+.element__like {
     padding: 0;
     margin: auto 20px auto 0;
     width: 22px;
@@ -15,11 +15,11 @@
     align-content: center;
 }
 
-.elements__like:hover {
-    opacity: 0.6;
+.element__like:hover {
+    opacity: 0.5;
     transition: opacity 0.8s ease;
 }
 
-.elements__like:active {
+.element__like:active {
     background-image: url("../../../images/Union.svg");
 }

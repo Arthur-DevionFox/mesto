@@ -7,8 +7,16 @@ const nameRes = document.querySelector('.popup__name[type=text]')
 const profession = document.querySelector('.profile__profession')
 const professionRes = document.querySelector('.popup__profession[type=text]')
 
-function popUp() {
-    popup.classList.toggle('popup__opened');
+function popUpOpn() {
+    if (popup.classList.contains('popup__opened') === false) {
+        popup.classList.add('popup__opened');
+    }
+}
+
+function popUpCls() {
+    if (popup.classList.contains('popup__opened') === true) {
+        popup.classList.remove('popup__opened');
+    }
 }
 
 function saveFunc() {
@@ -16,25 +24,11 @@ function saveFunc() {
     profession.textContent = professionRes.value
 }
 
-function popUpEnt(evt) {
-    if ((evt.key === 'Enter') && popup.classList.contains('popup__opened')) {
-        popup.classList.toggle('popup__opened');
-    }
-}
+edit.addEventListener('click', popUpOpn);
+close.addEventListener('click', popUpCls);
 
-function popUpEsc(evt) {
-    if ((evt.key === 'Escape') && popup.classList.contains('popup__opened')) {
-        popup.classList.toggle('popup__opened');
-    }
-}
 
-edit.addEventListener('click', popUp);
-close.addEventListener('click', popUp);
-
-save.addEventListener('keydown', popUpEnt);
-document.addEventListener('keydown', popUpEsc);
-
-save.addEventListener('click', popUp);
+save.addEventListener('click', popUpCls);
 save.addEventListener('click', saveFunc);
 
 
