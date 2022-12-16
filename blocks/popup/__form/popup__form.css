@@ -1,9 +1,6 @@
 .popup__form {
-    margin: 54px auto 0 auto;
+    margin: 22px auto 0 auto;
     padding: 0 0 37px 0;
-    /*display: grid;
-    grid-template-columns: 358px;
-    grid-template-rows: repeat(2, 1fr);*/
     display: flex;
     flex-direction: column;
     max-width: 358px;
@@ -14,7 +11,7 @@
 @media screen and (max-width: 500px) {
     .popup__form {
         max-width: 238px;
-        margin-top: 75px;
+        margin-top: 53px;
         padding-bottom: 25px;
     }
 }

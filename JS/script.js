@@ -16,12 +16,13 @@ function popUpOpn() {
 function popUpCls(evt) {
         popup.classList.remove('popup_opened');
         evt.preventDefault();
-
 }
 
 function saveFunc(evt) {
+    popup.classList.remove('popup_opened')
     name.textContent = nameRes.value
     profession.textContent = professionRes.value
+    evt.preventDefault();
 }
 
 edit.addEventListener('click', popUpOpn);
@@ -30,6 +31,5 @@ close.addEventListener('click', popUpCls);
 
 /*TODO CREATE CALL TO SAVE ALL*/
 save.addEventListener('click', saveFunc);
-save.addEventListener('click', popUpCls);
 
 
