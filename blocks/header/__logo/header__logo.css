@@ -7,3 +7,9 @@
         padding: 0 0 32px 27px;
     }
 }
+
+@media screen and (max-width: 500px) {
+    .header__logo {
+        max-width: 104px;
+    }
+}

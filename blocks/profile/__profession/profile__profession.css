@@ -9,13 +9,20 @@
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     color: #FFF;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
 
+@media screen and (max-width: 1024px) {
+    .profile__profession {
+        font-size: 14px;
+        line-height: 17px;
+    }
 }
 
 @media screen and (max-width: 910px) {
     .profile__profession {
-        font-size: 14px;
-        line-height: 17px;
         text-align: center;
     }
 }

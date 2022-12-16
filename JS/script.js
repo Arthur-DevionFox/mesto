@@ -16,7 +16,16 @@ function popUpOpn() {
 function popUpCls() {
     if (popup.classList.contains('popup__opened') === true) {
         popup.classList.remove('popup__opened');
+        nameRes.value = ''
+        professionRes.value = ''
     }
+}
+
+function popUpClsS(evt) {
+    if (popup.classList.contains('popup__opened') === true) {
+        popup.classList.remove('popup__opened')
+    }
+    evt.preventDefault();
 }
 
 function saveFunc() {
@@ -28,7 +37,7 @@ edit.addEventListener('click', popUpOpn);
 close.addEventListener('click', popUpCls);
 
 
-save.addEventListener('click', popUpCls);
+save.addEventListener('click', popUpClsS);
 save.addEventListener('click', saveFunc);
 
 

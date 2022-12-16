@@ -13,6 +13,8 @@
 
 @media screen and (max-width: 500px) {
     .popup__form {
-        grid-template-columns: 238px;
+        max-width: 238px;
+        margin-top: 75px;
+        padding-bottom: 25px;
     }
 }
