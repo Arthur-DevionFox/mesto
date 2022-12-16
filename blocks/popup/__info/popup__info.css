@@ -1,4 +1,4 @@
-.popup__name {
+.popup__info {
     max-width: 358px;
     padding: 0 0 13px 0;
     margin: 0;
@@ -13,9 +13,17 @@
     border-bottom: 1px solid rgba(0, 0, 0, .2);
     outline: none;
 }
+/* TODO DO SOMETHING WITH MARGIN
+.popup__info:nth-child(2n + 1) {
+    margin: 30px 0 0 0;
+}*/
+
+.popup__info:first-child {
+    margin: 0;
+}
 
 @media screen and (max-width: 500px) {
-    .popup__name {
+    .popup__info {
         max-width: 238px;
     }
 }

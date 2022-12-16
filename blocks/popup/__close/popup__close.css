@@ -16,20 +16,6 @@
     cursor: pointer;
 }
 
-@media screen and (max-width: 1024px) {
-    .popup__close {
-        top: -38px;
-        right: -38px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .popup__close {
-        top: -38px;
-        right: -38px;
-    }
-}
-
 @media screen and (max-width: 500px) {
     .popup__close {
         right: -12px;

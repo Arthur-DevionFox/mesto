@@ -30,6 +30,5 @@
 @media screen and (max-width: 500px) {
     .profile__profession {
         margin-top: 14px;
-        text-align: center;
     }
 }
