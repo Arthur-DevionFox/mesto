@@ -1,4 +1,4 @@
-.popup__info {
+.popup__input {
     padding: 0;
     margin: 0;
     max-width: 358px;
@@ -17,12 +17,8 @@
     outline: none;
 }
 
-.popup__info:first-child {
-    margin: 0;
-}
-
 @media screen and (max-width: 500px) {
-    .popup__info {
+    .popup__input {
         max-width: 238px;
     }
 }
