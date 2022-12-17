@@ -3,9 +3,9 @@ const edit = document.querySelector('.profile__edit-button');
 const close = document.querySelector('.popup__close');
 const form = document.querySelector('.popup__form');
 const name = document.querySelector('.profile__name')
-const nameRes = document.querySelector('.popup__info_type_name[type=text]')
+const nameRes = document.querySelector('.popup__input_type_name')
 const profession = document.querySelector('.profile__profession')
-const professionRes = document.querySelector('.popup__info_type_profession[type=text]')
+const professionRes = document.querySelector('.popup__input_type_profession')
 
 function popUpOpn() {
     popup.classList.add('popup_opened');
