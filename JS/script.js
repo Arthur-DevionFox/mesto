@@ -3,14 +3,14 @@ const edit = document.querySelector('.profile__edit-button');
 const close = document.querySelector('.popup__close');
 const save = document.querySelector('.popup__save');
 const name = document.querySelector('.profile__name')
-const nameRes = document.querySelector('.popup__info_name[type=text]')
+const nameRes = document.querySelector('.popup__info_name')
 const profession = document.querySelector('.profile__profession')
-const professionRes = document.querySelector('.popup__info_profession[type=text]')
+const professionRes = document.querySelector('.popup__info_profession')
 
 function popUpOpn() {
         popup.classList.add('popup_opened');
-    nameRes.value = ''
-    professionRes.value = ''
+        nameRes.value = name.textContent
+        professionRes.value = profession.textContent
 }
 
 function popUpCls(evt) {
