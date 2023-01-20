@@ -10,9 +10,6 @@
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     color: #FFF;
-    display: flex;
-    justify-content: left;
-    align-items: center;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
