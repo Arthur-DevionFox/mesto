@@ -20,6 +20,3 @@
     transition: opacity 0.8s ease;
 }
 
-.element__like:active {
-    background-image: url("../../../images/Union.svg");
-}

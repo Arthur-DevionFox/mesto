@@ -1,11 +1,18 @@
-const popup = document.querySelector('.popup');
+const popupEdit = document.querySelector('#edit');
+const popupAdd = document.querySelector('#add');
 const edit = document.querySelector('.profile__edit-button');
-const close = document.querySelector('.popup__close');
-const form = document.querySelector('.popup__form');
+const add = document.querySelector('.profile__add-button')
+const closeEdit = document.querySelector('#close-edit');
+const closeAdd = document.querySelector('#close-add');
+const formEdit = document.querySelector('#edit-save');
+const formAdd = document.querySelector('#add-save');
 const name = document.querySelector('.profile__name')
-const nameRes = document.querySelector('.popup__input_type_name')
-const profession = document.querySelector('.profile__profession')
-const professionRes = document.querySelector('.popup__input_type_profession')
+const nameRes = document.querySelector('.popup__input_type_name');
+const profession = document.querySelector('.profile__profession');
+const professionRes = document.querySelector('.popup__input_type_profession');
+const head = document.querySelector('.popup__input_type_head');
+const url = document.querySelector('.popup__input_type_url');
+const likeAdd = document.querySelector('.element__like')
 
 const initialCards = [
     {
@@ -61,29 +68,57 @@ function renderCard({name, link}) {
 
 
 render();
+/*TODO made like button*/
+/*function like() {
+    likeAdd.classList.toggle('element__like_active');
+}*/
+
 // Открытие PopUp
-function popUpOpn() {
-    popup.classList.add('popup_opened');
+function popUpOpnEdit() {
+    popupEdit.classList.add('popup_opened');
     nameRes.value = name.textContent
     professionRes.value = profession.textContent
 }
+
+function popUpOpnAdd() {
+    popupAdd.classList.add('popup_opened')
+}
+
 // Закрытие PopUp
-function popUpCls(evt) {
-    popup.classList.remove('popup_opened');
+function popUpClsEdit(evt) {
+    popupEdit.classList.remove('popup_opened');
+    evt.preventDefault();
+}
+
+function popUpClsAdd(evt) {
+    popupAdd.classList.remove('popup_opened')
     evt.preventDefault();
 }
 
 // Сохранение значений PopUp
-function saveFunc(evt) {
-    popUpCls(evt)
+function saveFuncEdit(evt) {
+    popUpClsEdit(evt)
     name.textContent = nameRes.value
     profession.textContent = professionRes.value
     evt.preventDefault();
 }
+/*TODO made cardAdd*/
+/*function saveFuncAdd(evt, {name, link}) {
+    popUpClsAdd(evt)
+    head.value = name;
+    url.value = link;
+    initialCards.push({name, link})
+    evt.preventDefault();
+}*/
 
-edit.addEventListener('click', popUpOpn);
-close.addEventListener('click', popUpCls);
-form.addEventListener('submit', saveFunc);
+edit.addEventListener('click', popUpOpnEdit);
+add.addEventListener('click', popUpOpnAdd);
+closeEdit.addEventListener('click', popUpClsEdit);
+closeAdd.addEventListener('click', popUpClsAdd);
+formEdit.addEventListener('submit', saveFuncEdit);
+/*formAdd.addEventListener('submit', saveFuncAdd);*/
+/*likeAdd.addEventListener('click', like);*/
+
 
 
 

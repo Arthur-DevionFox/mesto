@@ -8,12 +8,13 @@
 </head>
 <body class="body">
 <div class="page">
+    <!--Хедер-->
     <header class="header">
         <img alt="Лого" class="header__logo" src="images/Vector.svg">
     </header>
 
     <main>
-
+<!--Профиль-->
         <section class="profile">
             <img alt="Аватар" class="profile__avatar" src="./images/Avatar.jpg">
             <div class="profile__info">
@@ -28,7 +29,7 @@
             </div>
             <button class="profile__add-button" type="button"></button>
         </section>
-
+<!--Карточки-->
         <section class="elements">
             <template id="element">
                 <div class="element">
@@ -42,26 +43,43 @@
         </section>
 
     </main>
-
+<!--Футер-->
     <footer class="footer">
         <p class="footer__paragraph">© 2020 Mesto Russia</p>
     </footer>
 </div>
 
-<div class="popup">
-
+<!--Попап изменения данных-->
+<div class="popup" id="edit">
     <div class="popup__container">
         <h2 class="popup__paragraph">Редактировать профиль</h2>
-        <form class="popup__form">
+        <form class="popup__form" id="form-edit">
             <label>
                 <input class="popup__input popup__input_type_name" placeholder="Введите имя" type="text" name="Name"/>
             </label>
             <label>
                 <input class="popup__input popup__input_type_profession" placeholder="Введите род деятельности" type="text" name="Prof">
             </label>
-            <button class="popup__save" type="submit">Сохранить</button>
+            <button class="popup__save" type="submit" id="edit-save">Сохранить</button>
         </form>
-        <button type="button" class="popup__close"></button>
+        <button type="button" class="popup__close" id="close-edit"></button>
+    </div>
+</div>
+
+<!--Попап добвления карточки-->
+<div class="popup" id="add">
+    <div class="popup__container">
+        <h2 class="popup__paragraph">Новое место</h2>
+        <form class="popup__form" id="form-add">
+            <label>
+                <input class="popup__input popup__input_type_head" placeholder="Название" type="text" name="Head"/>
+            </label>
+            <label>
+                <input class="popup__input popup__input_type_url" placeholder="Ссылка на картинку" type="text" name="URL">
+            </label>
+            <button class="popup__save" type="submit" id="add-save">Создать</button>
+        </form>
+        <button type="button" class="popup__close" id="close-add"></button>
     </div>
 </div>
 <script src="JS/script.js"></script>
