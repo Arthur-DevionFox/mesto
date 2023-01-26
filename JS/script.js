@@ -10,8 +10,6 @@ const name = document.querySelector('.profile__name')
 const nameRes = document.querySelector('.popup__input_type_name');
 const profession = document.querySelector('.profile__profession');
 const professionRes = document.querySelector('.popup__input_type_profession');
-const head = document.querySelector('.popup__input_type_head');
-const url = document.querySelector('.popup__input_type_url');
 
 const initialCards = [
     {
@@ -44,7 +42,11 @@ const initialCards = [
 
 const elements = document.querySelector('.elements');
 const element = document.querySelector('#element').content;
-const like = element.querySelector('.element__like');
+const likeButton = element.querySelector('.element__like');
+
+function like () {
+
+}
 
 const info = initialCards.map(function (item) {
     return {
@@ -65,6 +67,17 @@ function renderNewCard({name, link}) {
     name = document.querySelector('.popup__input_type_head').value
     newElement.querySelector('.element__paragraph').textContent = name
 
+    const like = newElement.querySelector('.element__like')
+    like.addEventListener('click', (evt) => {
+        evt.target.classList.toggle('element__like_active')
+    } )
+
+    const delBtn = newElement.querySelector('.element__delete');
+    delBtn.addEventListener('click', (evt) => {
+        evt.target.closest('.element').remove();
+        evt.preventDefault();
+    })
+
     elements.prepend(newElement);
     console.log(initialCards);
 }
@@ -74,6 +87,17 @@ function renderCard({name, link}) {
     startElement.querySelector('.element__paragraph').textContent = name;
     startElement.querySelector('.element__image').src = link;
 
+    const like = startElement.querySelector('.element__like')
+    like.addEventListener('click', (evt) => {
+        evt.target.classList.toggle('element__like_active')
+    })
+
+
+    const delBtn = startElement.querySelector('.element__delete');
+    delBtn.addEventListener('click', (evt) => {
+        evt.target.closest('.element').remove();
+        evt.preventDefault();
+    })
     elements.prepend(startElement);
 }
 
@@ -81,15 +105,13 @@ function renderCard({name, link}) {
 render();
 
 /*TODO made like button*/
-function likeAdd() {
-    like.target.classList.toggle('element__like_active');
-}
 
 // Открытие PopUp
 function popUpOpnEdit() {
     popupEdit.classList.add('popup_opened');
     nameRes.value = name.textContent
     professionRes.value = profession.textContent
+    popupEdit.classList.remove('popup_closed')
 }
 
 function popUpOpnAdd() {
@@ -99,6 +121,7 @@ function popUpOpnAdd() {
 // Закрытие PopUp
 function popUpClsEdit(evt) {
     popupEdit.classList.remove('popup_opened');
+    popupEdit.classList.add('popup_closed')
     evt.preventDefault();
 }
 
@@ -129,4 +152,3 @@ closeEdit.addEventListener('click', popUpClsEdit);
 closeAdd.addEventListener('click', popUpClsAdd);
 formEdit.addEventListener('submit', saveFuncEdit);
 formAdd.addEventListener('submit', saveFuncAdd);
-like.addEventListener('click', likeAdd);
