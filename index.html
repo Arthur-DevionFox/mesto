@@ -34,7 +34,7 @@
             <template id="element">
                 <div class="element">
                     <button type="submit" class="element__delete"></button>
-                    <img src="" alt="Карачаевск" class="element__image">
+                    <img src="" alt="" class="element__image">
                     <div class="element__info">
                         <h2 class="element__paragraph"></h2>
                         <button type="button" class="element__like"></button>
@@ -86,12 +86,15 @@
 
 <!--Попап открытия картинки-->
 <!--TODO make new popUp type-->
-<!--<div class="popup" id="image">
+<div class="popup popup_img" id="image">
+    <div class="popup__container-big-img">
     <figure class="popup__figure">
-    <img class="popup__image" src="" alt="">
-    <figcaption class="popup__undertaker" id="undertaker"></figcaption>
+        <img class="popup__image" src="" alt="">
+        <figcaption class="popup__undertaker" id="undertaker"></figcaption>
     </figure>
-</div>-->
+    <button type="button" class="popup__close" id="img-close"></button>
+    </div>
+</div>
 <script src="JS/script.js"></script>
 </body>
 </html>
