@@ -23,24 +23,13 @@
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
                     <p class="profile__profession">Исследователь океана</p>
                 </div>
-
-
                 <button class="profile__edit-button" type="button"></button>
             </div>
             <button class="profile__add-button" type="button"></button>
         </section>
 <!--Карточки-->
         <section class="elements">
-            <template id="element">
-                <div class="element">
-                    <button type="submit" class="element__delete"></button>
-                    <img src=" " alt="" class="element__image">
-                    <div class="element__info">
-                        <h2 class="element__paragraph"></h2>
-                        <button type="button" class="element__like"></button>
-                    </div>
-                </div>
-            </template>
+
         </section>
 
     </main>
@@ -50,17 +39,24 @@
     </footer>
 </div>
 
+<template id="element">
+    <div class="element">
+        <button type="submit" class="element__delete"></button>
+        <img src=" " alt="" class="element__image">
+        <div class="element__info">
+            <h2 class="element__paragraph"></h2>
+            <button type="button" class="element__like"></button>
+        </div>
+    </div>
+</template>
+
 <!--Попап изменения данных-->
 <div class="popup" id="edit">
     <div class="popup__container">
         <h2 class="popup__paragraph">Редактировать профиль</h2>
         <form class="popup__form" id="form-edit">
-            <label>
                 <input class="popup__input popup__input_type_name" placeholder="Введите имя" type="text" name="Name"/>
-            </label>
-            <label>
                 <input class="popup__input popup__input_type_profession" placeholder="Введите род деятельности" type="text" name="Prof">
-            </label>
             <button class="popup__save popup__save_edit" type="submit">Сохранить</button>
         </form>
         <button type="button" class="popup__close" id="close-edit"></button>
@@ -72,12 +68,8 @@
     <div class="popup__container">
         <h2 class="popup__paragraph">Новое место</h2>
         <form class="popup__form" id="form-add">
-            <label>
                 <input class="popup__input popup__input_type_head" placeholder="Название" type="text" name="Head"/>
-            </label>
-            <label>
                 <input class="popup__input popup__input_type_url" placeholder="Ссылка на картинку" type="text" name="URL">
-            </label>
             <button class="popup__save" type="submit" id="add-save">Создать</button>
         </form>
         <button type="button" class="popup__close" id="close-add"></button>
@@ -95,6 +87,7 @@
     <button type="button" class="popup__close" id="img-close"></button>
     </div>
 </div>
+<script src="JS/initialCards.js"></script>
 <script src="JS/script.js"></script>
 </body>
 </html>

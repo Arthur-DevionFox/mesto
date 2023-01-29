@@ -1,4 +1,6 @@
 .element__delete {
+    margin: 0;
+    padding: 0;
     position: relative;
     width: 18px;
     height: 19px;
