@@ -5,10 +5,8 @@ const popupImg = document.querySelector('#image');
 
 const btnEdit = document.querySelector('.profile__edit-button');
 const btnAdd = document.querySelector('.profile__add-button')
-const btnClose = document.querySelector('#img-close');
 
-const closeEdit = document.querySelector('#close-edit');
-const closeAdd = document.querySelector('#close-add');
+const buttonCloseList = document.querySelectorAll('.popup__close');
 
 const formEdit = document.querySelector('#form-edit');
 const formAdd = document.querySelector('#form-add');
@@ -27,22 +25,11 @@ const urlInput = popupAdd.querySelector('.popup__input_type_url');
 
 
 /*Карточки*/
-const elements = document.querySelector('.elements');
+const elementsContainer = document.querySelector('.elements');
 const element = document.querySelector('#element').content;
 
-/*Перебор массива*/
-const info = initialCards.map(function (item) {
-    return {
-        name: item.name,
-        link: item.link
-    };
-});
 
 
-/*рендер массива*/
-function rendering() {
-    info.forEach(renderingCard);
-}
 
 function like(evt) {
     evt.target.classList.toggle('element__like_active');
@@ -81,28 +68,28 @@ function renderingCard({name, link}) {
 }
 
 initialCards.forEach((cardItem) => {
-    elements.append(renderingCard(cardItem))
+    elementsContainer.append(renderingCard(cardItem))
 })
 
 /*Рендер новой карточки*/
 function renderingNewCard(evt) {
-    elements.prepend(renderingCard({name: headInput.value, link: urlInput.value}));
+    elementsContainer.prepend(renderingCard({name: headInput.value, link: urlInput.value}));
     closePopup(popupAdd);
     evt.preventDefault()
     evt.currentTarget.reset();
 }
 
-/*Вызов функции рендера*/
-rendering();
-
-/*Закрытие попапа карточки*/
-btnClose.addEventListener('click', (evt) => {
-    popupImg.classList.remove('popup_opened');
-    evt.preventDefault();
+buttonCloseList.forEach(btn => {
+    const popup = btn.closest('.popup');
+    btn.addEventListener('click', () => closePopup(popup));
 })
 
 // Открытие PopUp
 function openPopup(popup) {
+    popup.classList.add('popup_opened')
+}
+
+function openProfilePopup(popup) {
     popup.classList.add('popup_opened')
     nameRes.value = name.textContent
     professionRes.value = profession.textContent
@@ -129,18 +116,13 @@ function saveFuncAdd(evt) {
 
 
 btnEdit.addEventListener('click', function () {
-    openPopup(popupEdit);
+    openProfilePopup(popupEdit);
 });
 btnAdd.addEventListener('click', function () {
     openPopup(popupAdd);
     headInput.textContent = ''
     urlInput.textContent = ''
 });
-closeEdit.addEventListener('click', function () {
-    closePopup(popupEdit);
-});
-closeAdd.addEventListener('click', function () {
-    closePopup(popupAdd);
-});
+
 formEdit.addEventListener('submit', saveFuncEdit);
 formAdd.addEventListener('submit', saveFuncAdd);
