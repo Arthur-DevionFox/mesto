@@ -1,34 +1,31 @@
 /*Основные константы*/
+/*Попапы*/
 const popupEdit = document.querySelector('#edit');
 const popupAdd = document.querySelector('#add');
 const popupImg = document.querySelector('#image');
-
+/*Кнопки изменения*/
 const btnEdit = document.querySelector('.profile__edit-button');
-const btnAdd = document.querySelector('.profile__add-button')
-
+const btnAdd = document.querySelector('.profile__add-button');
+/*Кнопка закрытия*/
 const buttonCloseList = document.querySelectorAll('.popup__close');
-
+/*Формы*/
 const formEdit = document.querySelector('#form-edit');
 const formAdd = document.querySelector('#form-add');
-
+/**/
 const name = document.querySelector('.profile__name')
 const nameRes = document.querySelector('.popup__input_type_name');
-
+/**/
 const profession = document.querySelector('.profile__profession');
 const professionRes = document.querySelector('.popup__input_type_profession');
-
+/**/
 const img = document.querySelector('.popup__image');
 const txt = document.querySelector('.popup__undertaker');
 const headInput = popupAdd.querySelector('.popup__input_type_head');
 const urlInput = popupAdd.querySelector('.popup__input_type_url');
 
-
-
 /*Карточки*/
 const elementsContainer = document.querySelector('.elements');
 const element = document.querySelector('#element').content;
-
-
 
 
 function like(evt) {
@@ -87,19 +84,47 @@ buttonCloseList.forEach(btn => {
 // Открытие PopUp
 function openPopup(popup) {
     popup.classList.add('popup_opened')
+    document.addEventListener('keyup', handleEscUp)
+    closePopupClickOnOverlay(popup);
 }
 
-function openProfilePopup(popup) {
-    popup.classList.add('popup_opened')
+function openProfilePopup() {
     nameRes.value = name.textContent
     professionRes.value = profession.textContent
 }
+
 // Закрытие PopUp
-function closePopup(evt) {
-    evt.classList.remove('popup_opened');
+function closePopup(popup) {
+    popup.classList.remove('popup_opened');
+    popup.addEventListener('click', (evt) => {
+        if (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close')) {
+            // закрываем только тогда, когда надо, т.е. только при том клике, которые происходит по нужному элементу
+            closeModalWindow(popup);
+        }
+    });
 }
 
+function closePopupClickOnOverlay(popup) {
+    const activePopup = document.querySelector('.popup_opened');
+    activePopup.addEventListener('click', evt => {
+        if (evt.currentTarget === evt.target) {
+            closePopup(popup);
+        }
+    });
+}
 
+const closeModalWindow = (modalWindow) => {
+    document.removeEventListener('keyup', handleEscUp);   // удаляем событие keyup
+    modalWindow.classList.remove('popup_opened');
+};
+
+const handleEscUp = (evt) => {
+    evt.preventDefault();
+    if (evt.key === 'Escape') {
+        const activePopup = document.querySelector('.popup_opened');
+        closeModalWindow(activePopup);
+    }
+};
 // Сохранение значений PopUp
 function saveFuncEdit(evt) {
     closePopup(popupEdit);
@@ -108,20 +133,18 @@ function saveFuncEdit(evt) {
     evt.preventDefault();
 }
 
-
 function saveFuncAdd(evt) {
     renderingNewCard(evt);
     evt.preventDefault();
 }
 
-
 btnEdit.addEventListener('click', function () {
+    openPopup(popupEdit);
     openProfilePopup(popupEdit);
 });
 btnAdd.addEventListener('click', function () {
     openPopup(popupAdd);
-    headInput.textContent = ''
-    urlInput.textContent = ''
+    formAdd.reset();
 });
 
 formEdit.addEventListener('submit', saveFuncEdit);
