@@ -21,6 +21,12 @@
     cursor: pointer;
 }
 
+.popup__save:disabled {
+    border: 1px solid rgba(0, 0, 0, .2);
+    background-color: white;
+    color: rgba(0, 0, 0, .2);
+}
+
 @media screen and (max-width: 500px) {
     .popup__save {
         max-width: 238px;

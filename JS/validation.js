@@ -1,0 +1,73 @@
+// включение валидации вызовом enableValidation
+// все настройки передаются при вызове
+
+enableValidation = {
+    formSelector: '.popup__form',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__save',
+    inactiveButtonClass: 'popup__save_non-active',
+    inputErrorClass: 'popup__input-error',
+    errorClass: 'popup__input-error_visible'
+};
+
+/*console.log(enableValidation.formSelector)*/
+
+function hasInvalidInput(inputList) {
+    return inputList.some((inputElement) => {
+        return !inputElement.validity.valid;
+    })
+}
+
+const showInputError = (formElement, inputElement, errorMessage) => {
+    const errorElement = formElement.querySelector(`.${inputElement.id}-error`)
+
+    inputElement.classList.add(enableValidation.inputErrorClass);
+    errorElement.textContent = errorMessage;
+    errorElement.classList.add(enableValidation.errorClass)
+}
+
+const hideInputError = (formElement, inputElement) => {
+    const errorElement = formElement.querySelector(`.${inputElement.id}-error`)
+
+    inputElement.classList.remove(enableValidation.inputErrorClass);
+    errorElement.textContent = '';
+    errorElement.classList.remove(enableValidation.errorClass)
+}
+
+const toggleButtonState = (inputList, button) => button.disabled = hasInvalidInput(inputList);
+
+const evtListeners = (formElement, config) => {
+    const inputs = Array.from(formElement.querySelector(config.inputSelector))
+    const btn = formElement.querySelector(config.submitButtonSelector);
+    toggleButtonState(inputs, btn, config);
+
+    inputs.forEach((inputElement) => {
+        inputElement.addEventListener('input', function () {
+            hasInvalidInput(formElement, inputElement);
+            toggleButtonState(inputs, btn, config)
+        })
+    })
+}
+
+const valid = (config) => {
+    const formList = Array.from(document.querySelectorAll(config.formSelector));
+    const formInput = Array.from(document.querySelectorAll(config.inputSelector))
+    formList.forEach((formElement) => {
+        formElement.addEventListener('submit', function (evt) {
+            evt.preventDefault();
+        })
+        evtListeners(formElement, config);
+    })
+
+    formInput.forEach((formElement) => {
+        if (!formElement.validity.valid) {
+            // Передадим сообщение об ошибке вторым аргументом
+            showInputError(formElement, formElement.validationMessage);
+        } else {
+            hideInputError(formElement);
+        }
+    })
+
+}
+
+valid(enableValidation);

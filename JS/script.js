@@ -97,7 +97,7 @@ function openProfilePopup() {
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
     popup.addEventListener('click', (evt) => {
-        if (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close')) {
+        if (evt.target.classList.contains('popup')) {
             // закрываем только тогда, когда надо, т.е. только при том клике, которые происходит по нужному элементу
             closeModalWindow(popup);
         }
