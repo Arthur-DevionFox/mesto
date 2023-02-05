@@ -13,15 +13,15 @@ const formEdit = document.querySelector('#form-edit');
 const formAdd = document.querySelector('#form-add');
 /**/
 const nameProf = document.querySelector('.profile__name')
-const nameRes = document.querySelector('.popup__input_type_name');
+const nameRes = document.querySelector('.popup__input_type-name');
 /**/
 const profession = document.querySelector('.profile__profession');
-const professionRes = document.querySelector('.popup__input_type_profession');
+const professionRes = document.querySelector('.popup__input_type-profession');
 /**/
 const img = document.querySelector('.popup__image');
 const txt = document.querySelector('.popup__undertaker');
-const headInput = popupAdd.querySelector('.popup__input_type_head');
-const urlInput = popupAdd.querySelector('.popup__input_type_url');
+const headInput = popupAdd.querySelector('.popup__input_type-head');
+const urlInput = popupAdd.querySelector('.popup__input_type-url');
 
 /*Карточки*/
 const elementsContainer = document.querySelector('.elements');
