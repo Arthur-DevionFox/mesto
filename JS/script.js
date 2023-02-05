@@ -12,7 +12,7 @@ const buttonCloseList = document.querySelectorAll('.popup__close');
 const formEdit = document.querySelector('#form-edit');
 const formAdd = document.querySelector('#form-add');
 /**/
-const name = document.querySelector('.profile__name')
+const nameProf = document.querySelector('.profile__name')
 const nameRes = document.querySelector('.popup__input_type_name');
 /**/
 const profession = document.querySelector('.profile__profession');
@@ -89,7 +89,7 @@ function openPopup(popup) {
 }
 
 function openProfilePopup() {
-    nameRes.value = name.textContent
+    nameRes.value = nameProf.textContent
     professionRes.value = profession.textContent
 }
 
@@ -128,7 +128,7 @@ const handleEscUp = (evt) => {
 // Сохранение значений PopUp
 function saveFuncEdit(evt) {
     closePopup(popupEdit);
-    name.textContent = nameRes.value
+    nameProf.textContent = nameRes.value
     profession.textContent = professionRes.value
     evt.preventDefault();
 }
