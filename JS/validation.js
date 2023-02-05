@@ -1,7 +1,7 @@
 // включение валидации вызовом enableValidation
 // все настройки передаются при вызове
 
-enableValidation = {
+config = {
     formSelector: '.popup__form',
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__save',
@@ -21,17 +21,17 @@ function hasInvalidInput(inputList) {
 const showInputError = (formElement, inputElement, errorMessage) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`)
 
-    inputElement.classList.add(enableValidation.inputErrorClass);
+    inputElement.classList.add(config.inputErrorClass);
     errorElement.textContent = errorMessage;
-    errorElement.classList.add(enableValidation.errorClass)
+    errorElement.classList.add(config.errorClass)
 }
 
 const hideInputError = (formElement, inputElement) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`)
 
-    inputElement.classList.remove(enableValidation.inputErrorClass);
+    inputElement.classList.remove(config.inputErrorClass);
     errorElement.textContent = '';
-    errorElement.classList.remove(enableValidation.errorClass)
+    errorElement.classList.remove(config.errorClass)
 }
 
 const toggleButtonState = (inputList, button) => button.disabled = hasInvalidInput(inputList);
@@ -49,7 +49,7 @@ const evtListeners = (formElement, config) => {
     })
 }
 
-const valid = (config) => {
+const enableValidation = (config) => {
     const formList = Array.from(document.querySelectorAll(config.formSelector));
     const formInput = Array.from(document.querySelectorAll(config.inputSelector))
     formList.forEach((formElement) => {
@@ -70,4 +70,4 @@ const valid = (config) => {
 
 }
 
-valid(enableValidation);
+enableValidation(config);
