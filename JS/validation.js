@@ -13,9 +13,22 @@ config = {
 /*console.log(enableValidation.formSelector)*/
 
 function hasInvalidInput(inputList) {
-    return inputList.some((inputElement) => {
-        return !inputElement.validity.valid;
+    const formInput = Array.from(document.querySelectorAll(inputList.inputSelector))
+
+    formInput.forEach((formElement) => {
+        if (!formElement.validity.valid) {
+            // Передадим сообщение об ошибке вторым аргументом
+            showInputError(formElement, formElement.validationMessage);
+        } else {
+            hideInputError(formElement);
+        }
     })
+
+    return function () {
+        inputList.some((inputElement) => {
+            return !inputElement.validity.valid;
+        })
+    }
 }
 
 const showInputError = (formElement, inputElement, errorMessage) => {
@@ -51,23 +64,13 @@ const evtListeners = (formElement, config) => {
 
 const enableValidation = (config) => {
     const formList = Array.from(document.querySelectorAll(config.formSelector));
-    const formInput = Array.from(document.querySelectorAll(config.inputSelector))
     formList.forEach((formElement) => {
         formElement.addEventListener('submit', function (evt) {
             evt.preventDefault();
+            toggleButtonState(formElement, config);
         })
         evtListeners(formElement, config);
     })
-
-    formInput.forEach((formElement) => {
-        if (!formElement.validity.valid) {
-            // Передадим сообщение об ошибке вторым аргументом
-            showInputError(formElement, formElement.validationMessage);
-        } else {
-            hideInputError(formElement);
-        }
-    })
-
 }
 
 enableValidation(config);

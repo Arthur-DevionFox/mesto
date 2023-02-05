@@ -70,10 +70,10 @@
     <div class="popup__container">
         <h2 class="popup__paragraph">Новое место</h2>
         <form class="popup__form" name="card-form" id="form-add" novalidate>
-                <input class="popup__input popup__input_type_head" minlength="2" maxlength="30" placeholder="Название" type="text" name="Head" required/>
-                <span class="popup__input-error">Вы пропустили это поле</span>
-                <input class="popup__input popup__input_type_url" placeholder="Ссылка на картинку" type="url" name="URL" required>
-                <span class="popup__input-error">Вы пропустили это поле</span>
+                <input id="input-title" class="popup__input" minlength="2" maxlength="30" placeholder="Название" type="text" name="Head" required/>
+                <span class="popup__input-error input-title-error">Вы пропустили это поле</span>
+                <input id="input-url" class="popup__input" placeholder="Ссылка на картинку" type="url" name="URL" required>
+                <span class="popup__input-error input-url-error">Вы пропустили это поле</span>
             <button class="popup__save" type="submit" id="add-save">Создать</button>
         </form>
         <button type="button" class="popup__close" id="close-add"></button>
