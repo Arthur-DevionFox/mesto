@@ -49,7 +49,7 @@ const setPopupListeners = () => {
 }
 setPopupListeners();
 
-function findTemplate(selector) {
+function findTemplate() {
     return cardTemplate.querySelector('.element')
 }
 
