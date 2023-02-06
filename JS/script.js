@@ -7,8 +7,6 @@ const popupImg = document.querySelector('#image');
 /*Кнопки изменения*/
 const btnEdit = document.querySelector('.profile__edit-button');
 const btnAdd = document.querySelector('.profile__add-button');
-/*Кнопка закрытия*/
-const buttonClose = document.querySelector('.popup__close');
 /*Формы*/
 const formEdit = document.querySelector('#form-edit');
 const formAdd = document.querySelector('#form-add');
@@ -51,10 +49,14 @@ const setPopupListeners = () => {
 }
 setPopupListeners();
 
+function findTemplate(selector) {
+    return cardTemplate.querySelector('.element')
+}
+
 /*рендер стартовой карточки*/
 function createCard({name, link}) {
     /*Рендер самой карточки*/
-    const cardItem = cardTemplate.querySelector('.element').cloneNode(true);
+    const cardItem = findTemplate().cloneNode(true);
 
     cardItem.querySelector('.element__paragraph').textContent = name;
     cardItem.querySelector('.element__image').alt = name
@@ -77,10 +79,7 @@ initialCards.forEach((cardItem) => {
 })
 
 
-/*buttonCloseList.forEach(btn => {
-    const popup = btn.closest('.popup');
-    btn.addEventListener('click', () => closePopup(popup));
-})*/
+
 
 // Открытие PopUp
 function openPopup(popup) {
@@ -117,7 +116,7 @@ const handleEscUp = (evt) => {
     evt.preventDefault();
     if (evt.key === 'Escape') {
         const activePopup = document.querySelector('.popup_opened');
-        closeModalWindow(activePopup);
+        closePopup(activePopup);
     }
 };
 // Сохранение значений PopUp

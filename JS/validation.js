@@ -14,11 +14,10 @@ const configurationValidation = {
 const checkInputValid = (form, input, config) => {
     if (!input.validity.valid) {
             // Передадим сообщение об ошибке вторым аргументом
-             showInputError(form, input, input.validationMessage, config);
-         }
-    else {
+        showInputError(form, input, input.validationMessage, config);
+    } else {
              hideInputError(form, input, config);
-         }
+    }
 }
 
 const hasInvalidInput = (inputList) => inputList.some((input) => !input.validity.valid);
