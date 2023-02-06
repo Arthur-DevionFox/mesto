@@ -24,7 +24,7 @@ const urlInput = popupAdd.querySelector('.popup__input_type_url');
 
 /*Карточки*/
 const cardsContainer = document.querySelector('.elements');
-const cardTemplate = document.querySelector('#element').content;
+const cardTemplate = document.querySelector('#element').content.querySelector('.element');
 
 function handleLikeClick(evt) {
     evt.target.classList.toggle('element__like_active');
@@ -49,14 +49,11 @@ const setPopupListeners = () => {
 }
 setPopupListeners();
 
-function findTemplate() {
-    return cardTemplate.querySelector('.element')
-}
 
 /*рендер стартовой карточки*/
 function createCard({name, link}) {
     /*Рендер самой карточки*/
-    const cardItem = findTemplate().cloneNode(true);
+    const cardItem = cardTemplate.cloneNode(true);
 
     cardItem.querySelector('.element__paragraph').textContent = name;
     cardItem.querySelector('.element__image').alt = name
@@ -77,9 +74,6 @@ function createCard({name, link}) {
 initialCards.forEach((cardItem) => {
     cardsContainer.append(createCard(cardItem))
 })
-
-
-
 
 // Открытие PopUp
 function openPopup(popup) {
@@ -107,10 +101,6 @@ function closePopupByClick(evt) {
         closePopup(evt.target.closest('.popup'));
     }
 }
-
-const closeModalWindow = (modalWindow) => {
-    modalWindow.classList.remove('popup_opened');
-};
 
 const handleEscUp = (evt) => {
     evt.preventDefault();
