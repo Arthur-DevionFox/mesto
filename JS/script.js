@@ -1,3 +1,5 @@
+import {Card} from './Card.js'
+
 /*Основные константы*/
 /*Попапы*/
 const popups = Array.from(document.querySelectorAll('.popup'))
@@ -101,6 +103,7 @@ function closePopupByClick(evt) {
         closePopup(evt.target.closest('.popup'));
     }
 }
+
 
 const handleEscUp = (evt) => {
     evt.preventDefault();
