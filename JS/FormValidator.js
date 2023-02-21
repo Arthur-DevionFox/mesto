@@ -40,6 +40,7 @@ export class FormValidator {
         this._inputs.forEach((inputElement) => {
             this._hideInputError(inputElement);
         })
+        this._toggleButtonState();
     }
     _hasInvalidInput = () => this._inputs.some((input) => !input.validity.valid);
 
