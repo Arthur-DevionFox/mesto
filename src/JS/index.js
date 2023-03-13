@@ -1,6 +1,8 @@
 import {Card} from './Card.js'
 import {FormValidator, configurationValidation} from "./FormValidator.js";
+import { initialCards } from './initialCards.js'
 import * as data from "./constants.js"
+import '../pages/index.css'
 
 
 function openImagePopup(name, link) {
