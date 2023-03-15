@@ -1,6 +1,6 @@
 export default class Popup {
-    constructor(popup) {
-        this._popup = popup;
+    constructor(popupSelector) {
+        this._popup = document.querySelector(popupSelector);
     }
 
     open() {
@@ -10,11 +10,11 @@ export default class Popup {
 
     }
 
-    _handleEscClose(evt) {
+    _handleEscClose() {
 
     }
 
-    setEventListeners(evt) {
+    setEventListeners() {
 
     }
 }
