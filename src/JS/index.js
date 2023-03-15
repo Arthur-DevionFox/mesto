@@ -3,6 +3,10 @@ import {FormValidator, configurationValidation} from "./FormValidator.js";
 import { initialCards } from './initialCards.js'
 import * as data from "./constants.js"
 import '../pages/index.css'
+import UserInfo from "./UserInfo";
+import {profession} from "./constants.js";
+import Section from "./Section";
+import Popup from "./Popup";
 
 
 function openImagePopup(name, link) {
@@ -32,10 +36,6 @@ formAddValidator.enableValidation();
 formEditValidator.enableValidation();
 
 
-initialCards.forEach((cardItem) => {
-    data.cardsContainer.append(createCard(cardItem))
-})
-
 // Открытие PopUp
 function openPopup(popup) {
     popup.classList.add('popup_opened')
@@ -43,9 +43,21 @@ function openPopup(popup) {
 }
 
 function fillProfileFormInputs() {
-    data.nameRes.value = data.nameProf.textContent
-    data.professionRes.value = data.profession.textContent
+    const {name, profession} = profile.getUserInfo();
+    data.nameRes.value = name
+    data.professionRes.value = profession
 }
+const section = new Section({items: initialCards, renderer: createCard }, '.elements');
+
+section.renderItems()
+
+const profile = new UserInfo({nameSelector: '.profile__name', infoSelector: '.profile__profession' })
+
+const popupFunctions = new Popup('popup');
+
+
+
+
 
 // Закрытие PopUp
 function closePopup(popup) {
@@ -74,13 +86,12 @@ const handleEscUp = (evt) => {
 // Сохранение значений PopUp
 function saveFuncEdit(evt) {
     closePopup(data.popupEdit);
-    data.nameProf.textContent = data.nameRes.value
-    data.profession.textContent = data.professionRes.value
+    profile.setUserInfo({ name: data.nameRes.value, profession: data.professionRes.value })
     evt.preventDefault();
 }
 
 function saveFuncAdd(evt) {
-    data.cardsContainer.prepend(createCard({name: data.headInput.value, link: data.urlInput.value}));
+    section.addItem(createCard({name: data.headInput.value, link: data.urlInput.value}));
     closePopup(data.popupAdd);
     evt.preventDefault();
 }

@@ -1,20 +1,17 @@
-import { initialCards } from "./initialCards";
-import * as data from "./constants";
-import { Card } from "./Card.js";
-
 export default class Section {
     constructor({ items, renderer }, selector) {
         this._items = items;
-        this.renderer = renderer;
-        this._selector = selector;
+        this._renderer = renderer;
+        this._container = document.querySelector(selector);
     }
 
-    renderer(cardData) {
-
+    renderItems() {
+        this._items.reverse().forEach((item) => {
+            this.addItem(this._renderer(item))
+        })
     }
 
-    addItem() {
-
+    addItem(newItem) {
+        this._container.prepend(newItem)
     }
-
 }
