@@ -1,12 +1,13 @@
-import {Card} from './Card.js'
-import {FormValidator, configurationValidation} from "./FormValidator.js";
+import { Card } from './Card.js'
+import { FormValidator, configurationValidation } from "./FormValidator.js";
 import { initialCards } from './initialCards.js'
 import * as data from "./constants.js"
 import '../pages/index.css'
 import UserInfo from "./UserInfo";
-import {profession} from "./constants.js";
+import {popupAdd, popupEdit, popupImg} from "./constants.js";
 import Section from "./Section";
 import Popup from "./Popup";
+import PopupWithImage from "./PopupWithImage";
 
 
 function openImagePopup(name, link) {
@@ -43,7 +44,7 @@ function openPopup(popup) {
 }
 
 function fillProfileFormInputs() {
-    const {name, profession} = profile.getUserInfo();
+    const { name, profession } = profile.getUserInfo();
     data.nameRes.value = name
     data.professionRes.value = profession
 }
@@ -53,9 +54,9 @@ section.renderItems()
 
 const profile = new UserInfo({nameSelector: '.profile__name', infoSelector: '.profile__profession' })
 
-const popupFunctions = new Popup('popup');
-
-
+const popupEditFunctions = new Popup(popupEdit)
+const popupAddFunctions = new Popup(popupAdd)
+const popupImageOpen = new PopupWithImage(popupImg)
 
 
 
@@ -67,11 +68,13 @@ function closePopup(popup) {
 
 function closePopupByClick(evt) {
     if (evt.target.classList.contains('popup')) {
-        closePopup(evt.target);
+        popupEditFunctions.close(evt.target);
+        popupAddFunctions.close(evt.target)
     }
 
     if (evt.target.classList.contains('popup__close')) {
-        closePopup(evt.target.closest('.popup'));
+        popupEditFunctions.close(evt.target.closest('.popup'));
+        popupAddFunctions.close(evt.target.closest('.popup'));
     }
 }
 
@@ -85,25 +88,25 @@ const handleEscUp = (evt) => {
 };
 // Сохранение значений PopUp
 function saveFuncEdit(evt) {
-    closePopup(data.popupEdit);
+    popupEditFunctions.close()
     profile.setUserInfo({ name: data.nameRes.value, profession: data.professionRes.value })
     evt.preventDefault();
 }
 
 function saveFuncAdd(evt) {
     section.addItem(createCard({name: data.headInput.value, link: data.urlInput.value}));
-    closePopup(data.popupAdd);
+    popupAddFunctions.close()
     evt.preventDefault();
 }
 
 
 data.btnEdit.addEventListener('click', function () {
-    openPopup(data.popupEdit);
+    popupEditFunctions.open()
     fillProfileFormInputs(data.popupEdit);
     formEditValidator.resetErrors(data.formEdit, configurationValidation);
 });
 data.btnAdd.addEventListener('click', function () {
-    openPopup(data.popupAdd);
+    popupAddFunctions.open();
     data.formAdd.reset();
     formAddValidator.resetErrors(data.formAdd, configurationValidation);
 });
