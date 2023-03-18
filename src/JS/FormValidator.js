@@ -20,6 +20,7 @@ export class FormValidator {
 
     enableValidation() {
         this._setEventListeners()
+        this.resetErrors();
     }
 
     _showInputError(inputElement) {

@@ -1,9 +1,9 @@
 export class Card {
-    constructor(cardTemplate, cardItem, openImagePopup) {
+    constructor(cardTemplate, cardItem, handleCardClick) {
         this._cardTemplate = cardTemplate;
         this._name = cardItem.name;
         this._link = cardItem.link;
-        this._openImagePopup = openImagePopup;
+        this._handleCardClick = handleCardClick
 
         console.log(this);
     }
@@ -13,7 +13,6 @@ export class Card {
             .querySelector(/*selector*/this._cardTemplate)
             .content.querySelector('.element')
             .cloneNode(true);
-        //
     }
 
     createCard() {
@@ -40,13 +39,17 @@ export class Card {
         this._likeBtn.classList.toggle('element__like_active');
     }
 
+    _openImage() {
+        this._handleCardClick(this._name, this._link)
+    }
+
     _setEventListeners() {
         this._likeBtn.addEventListener('click', () => {
             this._likeCard();
         })
 
         this._cardImage.addEventListener('click', () => {
-            this._openImagePopup(this._name, this._link);
+            this._openImage(this._name, this._link);
         })
 
         this._deleteBtn.addEventListener('click', () => {
