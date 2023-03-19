@@ -35,7 +35,7 @@ const editProfileData = (data) => {
 }
 
 const newItem = (item) => {
-    const newItem = renderCard(item.name, item.link)
+    const newItem = renderCard(item)
     section.addItem(newItem)
 }
 
