@@ -1,9 +1,9 @@
-import { Card } from './Card.js'
-import { FormValidator, configurationValidation } from "./FormValidator.js";
-import { initialCards } from './initialCards.js'
-import * as data from "./constants.js"
-import '../pages/index.css'
-import UserInfo from "./UserInfo";
+import { Card } from '../components/Card.js'
+import { FormValidator } from "../components/FormValidator.js";
+import { initialCards } from '../utils/initialCards.js'
+import * as data from "../utils/constants.js"
+import './index.css'
+import UserInfo from "../components/UserInfo";
 import {
     btnAdd,
     btnEdit,
@@ -14,10 +14,10 @@ import {
     popupImg,
     profession,
     professionRes
-} from "./constants.js";
-import Section from "./Section";
-import PopupWithImage from "./PopupWithImage";
-import PopupWithForm from "./PopupWithForm";
+} from "../utils/constants.js";
+import Section from "../components/Section";
+import PopupWithImage from "../components/PopupWithImage";
+import PopupWithForm from "../components/PopupWithForm";
 
 //функции
 const openImagePopup = (name, link) => {
@@ -34,9 +34,10 @@ const editProfileData = (data) => {
     popupUserInfo.close()
 }
 
-const newItem = (item) => {
+const createItem = (item) => {
     const newItem = renderCard(item)
     section.addItem(newItem)
+
 }
 
 //Образы
@@ -51,15 +52,16 @@ popupImage.setEventListeners();
 
 const profile = new UserInfo({nameSelector: '.profile__name', infoSelector: '.profile__profession' })
 
-const popupCreateCard = new PopupWithForm(popupAdd, newItem)
+const popupCreateCard = new PopupWithForm(popupAdd, createItem)
 popupCreateCard.setEventListeners();
 
-const formAddValidator = new FormValidator(configurationValidation, data.popupAdd);
-const formEditValidator = new FormValidator(configurationValidation, data.popupEdit);
+const formAddValidator = new FormValidator(data.configurationValidation, data.popupAdd);
+const formEditValidator = new FormValidator(data.configurationValidation, data.popupEdit);
 
 //слушатели
 btnAdd.addEventListener('click', () => {
     popupCreateCard.open()
+    formAddValidator.resetErrors()
 })
 
 btnEdit.addEventListener('click', () => {

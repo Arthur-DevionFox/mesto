@@ -1,3 +1,12 @@
+export const configurationValidation = {
+    formSelector: '.popup__form',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__save',
+    inactiveButtonClass: 'popup__save_non-active',
+    inputErrorClass: 'popup__input-error',
+    errorClass: 'popup__input-error_visible'
+};
+
 export const popups = Array.from(document.querySelectorAll('.popup'))
 export const popupEdit = document.querySelector('#edit');
 export const popupAdd = document.querySelector('#add');

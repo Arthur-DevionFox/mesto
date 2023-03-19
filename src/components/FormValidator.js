@@ -1,15 +1,5 @@
 // включение валидации вызовом enableValidation
 // все настройки передаются при вызове
-
-export const configurationValidation = {
-    formSelector: '.popup__form',
-    inputSelector: '.popup__input',
-    submitButtonSelector: '.popup__save',
-    inactiveButtonClass: 'popup__save_non-active',
-    inputErrorClass: 'popup__input-error',
-    errorClass: 'popup__input-error_visible'
-};
-
 export class FormValidator {
     constructor(config, formElement) {
         this._config = config;
@@ -20,7 +10,7 @@ export class FormValidator {
 
     enableValidation() {
         this._setEventListeners()
-        this.resetErrors();
+        this._toggleButtonState()
     }
 
     _showInputError(inputElement) {
