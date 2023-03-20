@@ -7,12 +7,7 @@ import UserInfo from "../components/UserInfo";
 import {
     btnAdd,
     btnEdit,
-    nameProf,
     nameRes,
-    popupAdd,
-    popupEdit,
-    popupImg,
-    profession,
     professionRes
 } from "../utils/constants.js";
 import Section from "../components/Section";
@@ -44,15 +39,15 @@ const createItem = (item) => {
 const section = new Section({items: initialCards, renderer: renderCard }, '.elements');
 section.renderItems()
 
-const popupUserInfo = new PopupWithForm(popupEdit, editProfileData)
+const popupUserInfo = new PopupWithForm('#edit', editProfileData)
 popupUserInfo.setEventListeners();
 
-const popupImage = new PopupWithImage(popupImg)
+const popupImage = new PopupWithImage('#image')
 popupImage.setEventListeners();
 
 const profile = new UserInfo({nameSelector: '.profile__name', infoSelector: '.profile__profession' })
 
-const popupCreateCard = new PopupWithForm(popupAdd, createItem)
+const popupCreateCard = new PopupWithForm('#add', createItem)
 popupCreateCard.setEventListeners();
 
 const formAddValidator = new FormValidator(data.configurationValidation, data.popupAdd);
