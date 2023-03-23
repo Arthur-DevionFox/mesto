@@ -12,6 +12,7 @@ export const popupEdit = document.querySelector('#edit');
 export const popupAdd = document.querySelector('#add');
 export const popupImg = document.querySelector('#image');
 /*Кнопки изменения*/
+export const btnAvatar = document.querySelector('#avatar-edit')
 export const btnEdit = document.querySelector('.profile__edit-button');
 export const btnAdd = document.querySelector('.profile__add-button');
 /*Формы*/
