@@ -27,13 +27,20 @@ export default class Api {
             .then(this._getJson)
     }
 
+    getProfileInfo() {
+        return fetch(`${this._path}/users/me`, {
+            headers: this._getHeaders()
+    })
+            .then(res => this._getJson(res))
+    }
+
     editProfileInfo(data) {
-        return fetch(`${this._path}/user/me`, {
+        return fetch(`${this._path}/users/me`, {
             method: 'PATCH',
             headers: this._getHeaders(),
             body: JSON.stringify({
                 name: data.name,
-                about: data.description
+                about: data.profession
             })
         })
             .then(this._getJson)
@@ -41,7 +48,7 @@ export default class Api {
 
     addNewCard(data) {
         return fetch(`${this._path}/cards`, {
-            method: 'PATCH',
+            method: 'POST',
             headers: this._getHeaders(),
             body: JSON.stringify({
                 name: data.name,
@@ -52,7 +59,7 @@ export default class Api {
     }
 
     editProfileAvatar(data) {
-        return fetch(`${this._path}/user/me/avatar`, {
+        return fetch(`${this._path}/users/me/avatar`, {
             method: 'PATCH',
             headers: this._getHeaders(),
             body: JSON.stringify({
@@ -85,5 +92,4 @@ export default class Api {
         })
             .then(this._getJson)
     }
-
 }

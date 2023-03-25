@@ -1,5 +1,3 @@
-// включение валидации вызовом enableValidation
-// все настройки передаются при вызове
 export class FormValidator {
     constructor(config, formElement) {
         this._config = config;
@@ -22,7 +20,6 @@ export class FormValidator {
 
     _hideInputError(inputElement) {
         const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`)
-
         errorElement.textContent = '';
         errorElement.classList.remove(this._config.errorClass);
     }
@@ -49,11 +46,11 @@ export class FormValidator {
     }
 
     _setEventListeners() {
-      this._inputs.forEach((inputElement) => {
-          inputElement.addEventListener('input', () => {
-              this._checkInputValid(inputElement);
-              this._toggleButtonState();
-          })
-      })
+        this._inputs.forEach((inputElement) => {
+            inputElement.addEventListener('input', () => {
+                this._checkInputValid(inputElement);
+                this._toggleButtonState();
+            })
+        })
     }
 }

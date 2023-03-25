@@ -1,3 +1,5 @@
+import {data} from "autoprefixer";
+
 export default class UserInfo {
     constructor({ nameSelector, infoSelector, avatarSelector }) {
         this._nameElement = document.querySelector(nameSelector);
@@ -9,18 +11,18 @@ export default class UserInfo {
     getUserInfo() {
         return {
             name: this._nameElement.textContent,
-            profession: this._infoElement.textContent
+            profession: this._infoElement.textContent,
         }
     }
 
     //Для установки данных
-    setUserInfo({ name, profession }) {
-        this._nameElement.textContent = name;
-        this._infoElement.textContent = profession;
+    setUserInfo(data) {
+        console.log(this._nameElement, this._infoElement);
+        this._nameElement.textContent = data.name;
+        this._infoElement.textContent = data.about;
     }
 
-    getUserId() {
-        return this._id;
+    setUserAvatar(data) {
+        this._avatarElement.src = data.avatar
     }
-
 }

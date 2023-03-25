@@ -1,23 +1,26 @@
 export const configurationValidation = {
     formSelector: '.popup__form',
     inputSelector: '.popup__input',
-    submitButtonSelector: '.popup__save',
-    inactiveButtonClass: 'popup__save_non-active',
-    inputErrorClass: 'popup__input-error',
+    submitButtonSelector: '.popup__submit',
+    inactiveButtonClass: '.popup__submit_non-active',
+    inputErrorClass: '.popup__input-error',
     errorClass: 'popup__input-error_visible'
 };
 
 export const popups = Array.from(document.querySelectorAll('.popup'))
+export const avatar = document.querySelector('.profile__avatar')
 export const popupEdit = document.querySelector('#edit');
 export const popupAdd = document.querySelector('#add');
+export const popupAvatar = document.querySelector('#avatar')
 export const popupImg = document.querySelector('#image');
 /*Кнопки изменения*/
-export const btnAvatar = document.querySelector('#avatar-edit')
+export const btnAvatar = document.querySelector('.profile__avatar-btn')
 export const btnEdit = document.querySelector('.profile__edit-button');
 export const btnAdd = document.querySelector('.profile__add-button');
 /*Формы*/
 export const formEdit = document.querySelector('#form-edit');
 export const formAdd = document.querySelector('#form-add');
+export const formAvatar = document.querySelector('#form-avatarEdit')
 /**/
 export const nameProf = document.querySelector('.profile__name')
 export const nameRes = document.querySelector('.popup__input_type_name');

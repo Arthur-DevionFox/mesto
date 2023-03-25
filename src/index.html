@@ -46,10 +46,12 @@
         <img src=" " alt="" class="element__image">
         <div class="element__info">
             <h2 class="element__paragraph"></h2>
-            <label class="element__like-info">
+            <div class="element__likes">
                 <button type="button" class="element__like"></button>
-                <p class="element__counter"></p>
-            </label>
+                <label class="element__like-info">
+                    <p class="element__counter"></p>
+                </label>
+            </div>
         </div>
     </div>
 </template>
@@ -75,8 +77,8 @@
         <h2 class="popup__paragraph">Новое место</h2>
         <form class="popup__form" name="card-form" id="form-add" novalidate>
                 <input id="input-title" class="popup__input popup__input_type_head" minlength="2" maxlength="30" placeholder="Название" type="text" name="name" required/>
-                <span class="popup__input-error input-title-error "></span>
-                <input id="input-url" class="popup__input popup__input_type_url" placeholder="Ссылка на картинку" type="url" name="link" required>
+                <span class="popup__input-error input-title-error"></span>
+                <input id="input-url" class="popup__input popup__input_type_url" placeholder="Ссылка на картинку" type="url" name="link" required/>
                 <span class="popup__input-error input-url-error"></span>
             <button class="popup__submit" type="submit" id="add-save">Создать</button>
         </form>
@@ -84,12 +86,12 @@
     </div>
 </div>
 
-<div class="popup" id="avatar-edit">
+<div class="popup" id="avatar">
     <div class="popup__container">
         <h2 class="popup__paragraph">Обновить аватар</h2>
         <form class="popup__form" name="card-form" id="form-avatarEdit" novalidate>
-            <input id="input-link" class="popup__input popup__input_type_avatar" minlength="2" maxlength="30" placeholder="Ссылка" type="text" name="name" required/>
-            <span class="popup__input-error input-title-error "></span>
+            <input id="input-link" class="popup__input popup__input_type_avatar" placeholder="Ссылка" type="url" name="avatar" required>
+            <span class="popup__input-error input-link-error"></span>
             <button class="popup__submit" type="submit" id="add-newAvatar">Сохранить</button>
         </form>
         <button type="button" class="popup__close" id="close-avatarEdit"></button>
@@ -111,7 +113,7 @@
 </html>
 
 <!--Попап удаления-->
-<div class="popup popup_delete">
+<div class="popup popup_delete" id="delete">
     <div class="popup__container popup__container_delete">
         <p class="popup__text">Вы уверены?</p>
         <button class="popup__submit popup__submit_delete">Да</button>
