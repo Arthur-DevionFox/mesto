@@ -147,7 +147,7 @@ const avatarPopup = new PopupWithForm({
         console.log(data)
         api.editProfileAvatar(data)
             .then((data) => {
-                avatar.src = data.avatar;
+                userInfo.setUserAvatar(data)
                 avatarPopup.close();
             })
             .catch((err) => {

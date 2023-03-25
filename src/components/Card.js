@@ -45,7 +45,7 @@ export class Card {
 
     deleteCard() {
         this._cardItem.remove();
-        this._cardItem = 'null'
+        this._cardItem = null
     }
 
     _isCardLiked() {
